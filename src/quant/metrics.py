@@ -35,4 +35,10 @@ def sharpe_ratio(returns: pd.Series) -> float:
 
 def max_drawdown(returns: pd.Series) -> float:
     """Biggest fall from a previous peak, as a negative number (-0.25 = -25%)."""
-    raise NotImplementedError
+    wealth = (1 + returns).cumprod()
+    peak = wealth.cummax()
+    drawdown = wealth / peak - 1 
+
+    return drawdown.min()
+
+

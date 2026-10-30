@@ -23,7 +23,10 @@ def annual_return(returns: pd.Series) -> float:
 
 def annual_volatility(returns: pd.Series) -> float:
     """Standard deviation of daily returns, scaled to a year."""
-    raise NotImplementedError
+    daily_volume = returns.std()
+    var2 = np.sqrt(TRADING_DAYS)
+    return daily_volume * var2
+
 
 def sharpe_ratio(returns: pd.Series) -> float:
     """Yearly return / yearly volatility. Assume a 0% risk-free rate."""

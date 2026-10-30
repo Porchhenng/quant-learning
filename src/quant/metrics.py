@@ -30,7 +30,8 @@ def annual_volatility(returns: pd.Series) -> float:
 
 def sharpe_ratio(returns: pd.Series) -> float:
     """Yearly return / yearly volatility. Assume a 0% risk-free rate."""
-    raise NotImplementedError
+    return annual_return(returns) / annual_volatility(returns)
+
 
 def max_drawdown(returns: pd.Series) -> float:
     """Biggest fall from a previous peak, as a negative number (-0.25 = -25%)."""

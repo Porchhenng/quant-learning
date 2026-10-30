@@ -8,7 +8,7 @@ from quant import metrics
 
 
 def test_total_return_compounds():
-    r = pd.Series([0.10, 0.10])
+    r = pd.Series([0.5, 0.5])
     assert metrics.total_return(r) == pytest.approx(0.21)
 
 

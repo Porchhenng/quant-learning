@@ -16,7 +16,10 @@ def total_return(returns: pd.Series) -> float:
 
 def annual_return(returns: pd.Series) -> float:
     """Compound growth per year (CAGR)."""
-    raise NotImplementedError
+    growth =  1 + total_return(returns)
+    year = len(returns) / TRADING_DAYS
+
+    return growth ** (1 / year) - 1
 
 def annual_volatility(returns: pd.Series) -> float:
     """Standard deviation of daily returns, scaled to a year."""

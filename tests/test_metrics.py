@@ -17,6 +17,12 @@ def test_annual_return_one_year_flat_growth():
     assert metrics.annual_return(r) == pytest.approx(1.001**252 - 1)
 
 
+def test_annual_return_two_years_same_speed():
+    # Same daily growth for 2 years: total doubles up, but the yearly rate stays the same
+    r = pd.Series([0.001] * 504)
+    assert metrics.annual_return(r) == pytest.approx(1.001**252 - 1)
+
+
 def test_annual_volatility_scales_by_sqrt_252():
     r = pd.Series([0.01, -0.01] * 126)
     assert metrics.annual_volatility(r) == pytest.approx(r.std() * np.sqrt(252))

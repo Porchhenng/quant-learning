@@ -11,7 +11,8 @@ TRADING_DAYS = 252
 
 def total_return(returns: pd.Series) -> float:
     """Growth over the whole period. +10% then +10% is 0.21, not 0.20."""
-    raise NotImplementedError
+    return (1 + returns).prod() - 1
+
 
 def annual_return(returns: pd.Series) -> float:
     """Compound growth per year (CAGR)."""

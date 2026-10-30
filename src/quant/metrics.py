@@ -1,0 +1,30 @@
+"""Performance measures for M3. Write these yourself; tests/test_metrics.py checks them.
+
+Every function takes a Series of DAILY returns (0.01 = +1%).
+Use 252 trading days per year.
+"""
+
+import pandas as pd
+import numpy as np
+TRADING_DAYS = 252
+
+
+def total_return(returns: pd.Series) -> float:
+    """Growth over the whole period. +10% then +10% is 0.21, not 0.20."""
+    raise NotImplementedError
+
+def annual_return(returns: pd.Series) -> float:
+    """Compound growth per year (CAGR)."""
+    raise NotImplementedError
+
+def annual_volatility(returns: pd.Series) -> float:
+    """Standard deviation of daily returns, scaled to a year."""
+    raise NotImplementedError
+
+def sharpe_ratio(returns: pd.Series) -> float:
+    """Yearly return / yearly volatility. Assume a 0% risk-free rate."""
+    raise NotImplementedError
+
+def max_drawdown(returns: pd.Series) -> float:
+    """Biggest fall from a previous peak, as a negative number (-0.25 = -25%)."""
+    raise NotImplementedError
